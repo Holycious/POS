@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\SellingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'index']);
+
+Route::get('/products/food-beverage', [ProductsController::class,'food_beverage']);
+
+Route::get('/products/beauty-health', [ProductsController::class,'beauty_health']);
+
+Route::get('/products/baby-kid', [ProductsController::class,'baby_kid']);
+
+Route::get('/products/home-care', [ProductsController::class,'home_care']);
+
+Route::get('/user/{id}/name/{name}', [UserController::class,'user']);
+
+Route::get('/selling', [SellingController::class,'selling']);
+
+
